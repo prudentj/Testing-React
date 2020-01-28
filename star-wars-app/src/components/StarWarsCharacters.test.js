@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 import { getData as mockGetData } from '../api';
 import StarWarsCharacters from './StarWarsCharacters';
 
@@ -19,6 +19,7 @@ test('Page Renders and API is called', async () => {
     expect(mockGetData).toHaveBeenCalledTimes(1)
     //Check my Buttons
     const { getByText } = render(<StarWarsCharacters />)
+    //Something is br
     const next = getByText(/next/i)
     fireEvent.click(next)
     const prev = getByText(/previous/i)
